@@ -1,0 +1,12 @@
+{
+  "name": "@uptoo/design-system",
+  "version": "0.01",
+  "description": "Uptoo Design System",
+  "author": "Uptoo",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
