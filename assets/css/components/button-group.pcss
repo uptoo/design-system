@@ -1,0 +1,25 @@
+@layer components {
+  .button-group {
+    display: inline-block;
+
+    .button {
+       float: left;
+       border-radius: 0px;
+       &:first-child {
+         @apply rounded-l;
+       }
+       &:last-child {
+         @apply rounded-r;
+       }
+       &:not(:last-child) {
+         @apply border-r-0;
+       }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+}

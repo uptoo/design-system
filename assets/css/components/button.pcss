@@ -1,12 +1,126 @@
 @layer components {
-  .btn {
-    @apply h-8 text-base font-medium rounded-lg px-3 py-0 bg-white text-blue-400 border border-gray-300 transition duration-500;
+  .button {
+    /* default style */
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded shadow-sm text-gray-700 bg-white;
+    
+    &::before {
+      content: ''
+    }
+
+    /* States */
     &:disabled {
       @apply opacity-50 cursor-default;
-    }
-    &:enabled {
       &:hover {
-        @apply text-blue-700 border-blue-700
+        @apply bg-white;
+      }
+    }
+
+    &:hover {
+      @apply bg-gray-50;
+    }
+
+    &:focus {
+    }
+
+    &:active {
+      @apply outline-none bg-gray-100;
+    }
+
+    /* Icons */
+    .pre-icon {
+      @apply material-icons mr-2 leading-5 text-lg;
+    }
+    .post-icon {
+      @apply material-icons ml-2 leading-5 text-lg;
+    }
+    .icon {
+      @apply material-icons -mx-1 leading-5 text-lg;
+    }
+
+    /* Rounded */
+    &.rounded-full {
+      @apply px-5;
+    }
+
+    /* Sizes */
+    &.small {
+      @apply px-2.5 py-1.5 text-xs;
+      .pre-icon {
+        @apply mr-2 text-sm leading-4;
+      }
+      .post-icon {
+        @apply ml-2 text-sm leading-4;
+      }
+      .icon {
+        @apply text-sm leading-4;
+      }
+      &.rounded-full {
+        @apply px-3;
+      }
+    }
+
+    &.large {
+      @apply px-5 py-2.5 text-base;
+      .pre-icon {
+        @apply mr-3 text-xl leading-6;
+      }
+      .post-icon {
+        @apply ml-3 text-xl leading-6;
+      }
+      .icon {
+        @apply text-xl leading-6;
+      }
+      &.rounded-full {
+        @apply px-8 text-xl leading-6;
+      }
+    }
+
+    /* Main colors */
+    &.blue {
+      @apply border-transparent text-white bg-blue-500;
+      &:disabled {
+        &:hover {
+          @apply bg-blue-500;
+        }
+      }
+      &:hover {
+        @apply bg-blue-600;
+      }
+
+      &:active {
+        @apply bg-blue-700;
+      }
+    }
+
+    &.green {
+      @apply border-transparent text-white bg-green-500;
+      &:disabled {
+        &:hover {
+          @apply bg-green-500;
+        }
+      }
+      &:hover {
+        @apply bg-green-600;
+      }
+
+      &:active {
+        @apply bg-green-700;
+      }
+    }
+
+    &.red {
+      @apply border-transparent text-white bg-red-500;
+      &:disabled {
+        &:hover {
+          @apply bg-red-500;
+        }
+      }
+      &:hover {
+        @apply bg-red-600;
+      }
+
+      &:active {
+        @apply bg-red-700;
       }
     }
   }
