@@ -5,13 +5,13 @@
     .button {
        float: left;
        border-radius: 0px;
-       &:first-child {
+       &:first-of-type {
          @apply rounded-l;
        }
-       &:last-child {
+       &:last-of-type {
          @apply rounded-r;
        }
-       &:not(:last-child) {
+       &:not(:last-of-type) {
          @apply border-r-0;
        }
     }

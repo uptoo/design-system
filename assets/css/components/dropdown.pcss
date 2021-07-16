@@ -1,0 +1,38 @@
+@layer components {
+  .dropdown {
+    @apply relative inline-block text-left;
+
+    &.right {
+      .menu {
+        @apply right-0 origin-top-right;
+      }
+    }
+
+    &.left {
+      .menu {
+        @apply left-0 origin-top-left;
+      }
+    }
+
+    .trigger {
+      overflow: auto;
+      &::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    }
+
+    &.dropdown-button {
+      .trigger {
+        height: 38px;
+        &.small {
+          height: 26px;
+        }
+        &.large {
+          height: 45px;
+        }
+      }
+    }
+  }
+}

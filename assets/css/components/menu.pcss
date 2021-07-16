@@ -1,0 +1,17 @@
+@layer components {
+  .menu {
+    @apply absolute w-56 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-200 ease-out;
+    div {
+      @apply p-1;
+      a {
+        @apply text-gray-900 flex rounded-md items-center w-full px-2 py-2 text-sm;
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:active {
+          @apply bg-gray-200
+        }
+      }
+    }
+  }
+}
