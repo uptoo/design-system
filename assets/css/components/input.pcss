@@ -1,15 +1,66 @@
 @layer components {
   .input {
-    @apply max-w-lg flex rounded-md shadow-sm;
-
-    .prepend {
-      @apply inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm;
+    .label {
+      @apply font-extrabold text-gray-400 mb-2
     }
-    .append {
-      @apply inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm;
+    .content {
+      @apply max-w-lg flex relative;
+      .prepend {
+        @apply inline-flex items-center px-3 py-4 rounded-l border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm md:text-base;
+      }
+      .append {
+        @apply inline-flex items-center px-3 py-4 rounded-r border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm md:text-base;
+      }
+      .post-icon {
+        @apply material-icons text-base absolute right-4 top-1/2 transform -translate-y-1/2;
+      }
+      input {
+        @apply flex-1 min-w-0 block w-full px-3 py-4 rounded text-sm bg-gray-100 md:text-base text-gray-700 border-2 border-gray-100;
+        &:focus {
+          outline-offset: 0;
+          @apply bg-white outline-none border-2 border-blue-500;
+        }
+       
+      }
     }
-    input {
-      @apply flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300;
+    .message {
+      @apply text-sm mt-2;
+    }
+    &.error {
+      .content {
+        .post-icon {
+          @apply bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center;
+        }
+        input {
+          @apply bg-gray-100 border-red-500;
+        }
+      }
+      .message {
+        @apply text-red-500;
+      }
+    }
+    &.success {
+      .content {
+        .post-icon {
+          @apply bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center;
+        }
+        input {
+          @apply bg-gray-100 border-green-500;
+        }
+      }
+      .message {
+        @apply text-green-500;
+      }
+    }
+    &.disabled {
+      .content {
+        input {
+          @apply border-gray-300 ;
+          &::placeholder {
+            @apply text-gray-300;
+          }
+        }
+      }
     }
   }
 }

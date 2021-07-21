@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.pcss$/i,
         include: path.resolve(__dirname, 'assets/css'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       }
     ],
   },

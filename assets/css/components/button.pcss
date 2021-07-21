@@ -1,53 +1,34 @@
 @layer components {
   .button {
     /* default style */
-    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded shadow-sm text-gray-700 bg-white;
-    
+    @apply inline-flex items-center px-3.5 py-2.5 text-base font-medium rounded border border-gray-300 text-gray-500;
     &::before {
       content: ''
     }
-
     /* States */
     &:disabled {
-      @apply opacity-50 cursor-default;
-      &:hover {
-        @apply bg-white;
-      }
+      @apply bg-gray-300 text-gray-500 cursor-default;
     }
-
-    &:hover {
-      @apply bg-gray-50;
+    &.outline {
+      @apply border-gray-500 bg-transparent;
+ 
     }
-
-    &:focus {
-    }
-
-    &:active {
-      @apply outline-none bg-gray-100;
-    }
-
     /* Icons */
     .pre-icon {
-      @apply material-icons mr-2 leading-5 text-base;
+      @apply material-icons mr-2 text-base;
     }
     .post-icon {
-      @apply material-icons ml-2 leading-5 text-base;
+      @apply material-icons ml-2 text-base;
     }
     .icon {
-      @apply material-icons -mx-1 leading-5 text-xl;
+      @apply material-icons -mx-1 text-base;
       &::before {
         content: ''
       }
     }
-
-    /* Rounded */
-    &.rounded-full {
-      @apply px-5;
-    }
-
     /* Sizes */
     &.small {
-      @apply px-2.5 py-1.5 text-xs;
+      @apply px-3 py-2 text-xs;
       .pre-icon {
         @apply mr-2 text-sm leading-4;
       }
@@ -57,73 +38,142 @@
       .icon {
         @apply text-sm leading-4;
       }
-      &.rounded-full {
-        @apply px-3;
-      }
     }
-
     &.large {
-      @apply px-5 py-2.5 text-base;
+      @apply px-5 py-3 text-lg;
       .pre-icon {
-        @apply mr-3 text-xl leading-6;
+        @apply mr-3 text-xl ;
       }
       .post-icon {
-        @apply ml-3 text-xl leading-6;
+        @apply ml-3 text-xl ;
       }
       .icon {
-        @apply text-xl leading-6;
-      }
-      &.rounded-full {
-        @apply px-8;
+        @apply text-xl ;
       }
     }
-
     /* Main colors */
     &.blue {
       @apply border-transparent text-white bg-blue-500;
-      &:disabled {
-        &:hover {
-          @apply bg-blue-500;
-        }
-      }
       &:hover {
         @apply bg-blue-600;
       }
-
-      &:active {
+      &:focus {
         @apply bg-blue-700;
       }
-    }
-
-    &.green {
-      @apply border-transparent text-white bg-green-500;
-      &:disabled {
-        &:hover {
-          @apply bg-green-500;
+      &:active {
+        @apply bg-blue-500;
+         box-shadow: 0px 0px 0px 4px rgba(0, 160, 254, 0.3);
+      }
+      &.outline {
+        @apply bg-transparent text-blue-500 border-blue-500;
+        &:disabled {
+          @apply bg-gray-300 text-gray-500 cursor-default border-transparent;
         }
       }
-      &:hover {
-        @apply bg-green-600;
+      &.ghost {
+        @apply border-transparent bg-transparent text-blue-500;
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:focus {
+          @apply bg-gray-300;
+        }
       }
-
-      &:active {
-        @apply bg-green-700;
+      &:disabled {
+        @apply bg-gray-300 text-gray-500 cursor-default;
       }
     }
-
     &.red {
       @apply border-transparent text-white bg-red-500;
-      &:disabled {
-        &:hover {
-          @apply bg-red-500;
-        }
-      }
       &:hover {
         @apply bg-red-600;
       }
-
-      &:active {
+      &:focus {
         @apply bg-red-700;
+      }
+      &:active {
+        @apply bg-red-500;
+         box-shadow: 0px 0px 0px 4px rgba(255,49,36, 0.3);
+      }
+      &.outline {
+        @apply bg-transparent text-red-500 border-red-500;
+        &:disabled {
+          @apply bg-gray-300 text-gray-500 cursor-default border-transparent;
+        }
+      }
+      &.ghost {
+        @apply border-transparent bg-transparent text-red-500;
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:focus {
+          @apply bg-gray-300;
+        }
+      }
+      &:disabled {
+        @apply bg-gray-300 text-gray-500 cursor-default;
+      }
+    },
+    &.green {
+      @apply border-transparent text-white bg-green-500;
+      &:hover {
+        @apply bg-green-600;
+      }
+      &:focus {
+        @apply bg-green-700;
+      }
+      &:active {
+        @apply bg-green-500;
+         box-shadow: 0px 0px 0px 4px rgba(46,215,19,0.3);
+      }
+      &.outline {
+        @apply bg-transparent text-green-500 border-green-500;
+        &:disabled {
+          @apply bg-gray-300 text-gray-500 cursor-default border-transparent;
+        }
+      }
+      &.ghost {
+        @apply border-transparent bg-transparent text-green-500;
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:focus {
+          @apply bg-gray-300;
+        }
+      }
+      &:disabled {
+        @apply bg-gray-300 text-gray-500 cursor-default;
+      }
+    }
+    &.yellow {
+      @apply border-transparent text-white bg-yellow-500;
+      &:hover {
+        @apply bg-yellow-600;
+      }
+      &:focus {
+        @apply bg-yellow-700;
+      }
+      &:active {
+        @apply bg-yellow-500;
+         box-shadow: 0px 0px 0px 4px rgba(255,210,48,0.3);
+      }
+      &.outline {
+        @apply bg-transparent text-yellow-500 border-yellow-500;
+        &:disabled {
+          @apply bg-gray-300 text-gray-500 cursor-default border-transparent;
+        }
+      }
+      &.ghost {
+        @apply border-transparent bg-transparent text-yellow-500;
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:focus {
+          @apply bg-gray-300;
+        }
+      }
+      &:disabled {
+        @apply bg-gray-300 text-gray-500 cursor-default;
       }
     }
   }
