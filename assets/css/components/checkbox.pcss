@@ -1,7 +1,148 @@
 @layer components {
   .checkbox {
-    input {
-      @apply rounded border border-gray-300;
+    --icon: 'check';
+    @apply relative;
+    .content {
+      @apply transition duration-200 ease-in-out;
+      input {
+        @apply absolute left-0 opacity-0;
+        /*checked*/
+        &[type="checkbox"]:checked + label{
+          &:before {
+            @apply bg-blue-500 border-blue-500;
+          }
+          &:after {
+            @apply opacity-100 text-white;
+          }
+        }
+        /*not checked*/
+        &[type="checkbox"]:not(:checked) + label {
+          &:before {
+            @apply bg-white;
+          }
+          &:after {
+            @apply opacity-0;
+          }
+        }
+      }
+      .label {
+        @apply relative text-base cursor-pointer pl-8;
+        /*case*/
+        &:before {
+          content: '';
+          @apply absolute left-0 top-1/2 transform -translate-y-1/2 w-5 h-5 rounded border border-gray-300 transition duration-200;
+        }
+        /*check*/
+        &:after {
+          @apply w-5 flex justify-center items-center absolute text-sm top-1/2 transform -translate-y-1/2 transition duration-200 font-bold;
+          content: var(--icon);
+          font-family: 'Material Icons';
+         
+        }
+      }
+      .description {
+        @apply pl-8 font-light mt-2;
+      }
+    }
+    &.disabled {
+      .content {
+        .label {
+          @apply text-gray-400;
+          &:before {
+            @apply bg-gray-100 border-gray-300 !important;
+          }
+          &:after {
+            @apply text-gray-500 !important;
+          }
+        }
+      }
+    }
+    &.small {
+      .content {
+        .label {
+          @apply pl-6;
+          @apply text-sm;
+          &:before {
+            @apply w-4 h-4;
+          }
+          &:after {
+            @apply w-4 text-xs;
+          }
+        }
+        .description {
+          @apply pl-6;
+        }
+      }
+    }
+    &.large {
+      .content {
+        .label {
+          @apply pl-10;
+          @apply text-lg;
+          &:before {
+            @apply w-6 h-6;
+          }
+          &:after {
+            @apply w-6 text-lg;
+          }
+        }
+        .description {
+          @apply pl-10;
+        }
+      }
+    }
+    &.hide-label {
+      .content {
+        .label {
+          @apply invisible;
+          &:before {
+            @apply visible;
+          }
+          &:after {
+            @apply visible;
+          }
+        }
+      }
+    }
+  }
+  .checkbox-group {
+    .checkbox {
+      .content {
+        @apply p-5;
+        .label {
+          @apply font-extrabold;
+        }
+      }
+      &.checked {
+        .content {
+          @apply bg-blue-100;
+          .label {
+            @apply text-blue-700;
+          }
+          .description {
+            @apply text-blue-700;
+          }
+        }
+      }
+    }
+    &.with-border {
+      .checkbox {
+        &:first-child {
+          .content {
+            @apply border-l border-t border-r border-gray-300 rounded-tr-2xl rounded-tl-2xl;
+          }
+        }
+        &:not(:first-child):not(:last-child) {
+          .content {
+            @apply border border-gray-300;
+          }
+        }
+        &:last-child {
+          .content {
+            @apply border-l border-b border-r border-gray-300 rounded-br-2xl rounded-bl-2xl;
+          }
+        }
+      }
     }
   }
 }
