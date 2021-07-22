@@ -1,0 +1,40 @@
+@layer components {
+  .radio {
+    @apply relative;
+    .content {
+      input {
+        @apply absolute left-0 opacity-0;
+        /*checked*/
+        &[type="radio"]:checked + label{
+          &:before {
+            @apply border-4 border-blue-500;
+          }
+          &:after {
+            @apply opacity-100 text-white;
+          }
+        }
+        /*not checked*/
+        &[type="radio"]:not(:checked) + label {
+          &:before {
+            @apply bg-white;
+          }
+          &:after {
+            @apply opacity-0;
+          }
+        }
+      }
+      .label {
+        @apply relative text-base cursor-pointer pl-8;
+        /*case*/
+        &:before {
+          content: '';
+          @apply absolute left-0 top-1/2 transform -translate-y-1/2 w-5 h-5 rounded-full border border-gray-300 transition duration-200;
+        }
+        /*check*/
+        &:after {
+          @apply w-5 transition duration-200;
+        }
+      }
+    }
+  }
+}
